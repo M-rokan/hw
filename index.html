@@ -20,7 +20,7 @@
       </select>
     </form>
     <br>
-    <button onclick="canvas.erase();">Erase</button>
+    <button onclick="canvas.erase(); resultRefresh ();">Refresh</button>
     <button onclick="
       var e = document.getElementById('language');
       canvas.setOptions({language: e.options[e.selectedIndex].value});
@@ -29,9 +29,11 @@
     <button onclick="canvas.undo()">Undo</button>
     <button onclick="canvas.redo()">Redo</button>
     <br>
-    result: <span id="result">o,a,O,B,D,@,♡,®,∞</span>
+    result: <span id="result"></span>
   </span>
+  
   <script type="text/javascript" src="handwriting.canvas.js"></script>
+  
   <script type="text/javascript" defer="">
     var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
     var width = document.getElementById("cid").clientWidth;
@@ -39,7 +41,8 @@
     canvas.cxt.canvas.height = width < 400 ? width : 400;
     canvas.setCallBack(function(data, err) {
       if (err) throw err;
-      else document.getElementById("result").innerHTML = data;
+      else document.getElementById("result").innerHTML = data[0];
+	  console.log(data);
     });
     canvas.set_Undo_Redo(true, true);
     var penSize = document.getElementById("penSize");
@@ -49,6 +52,12 @@
     penSize.addEventListener("change", function(){
       canvas.setLineWidth(penSize.value);
     });
+  </script>
+  
+  <script type="text/javascript"> 
+	function resultRefresh (){
+		document.getElementById("result").innerHTML = '';
+	};	
   </script>
 </div>
 
