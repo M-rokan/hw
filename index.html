@@ -5,53 +5,18 @@
 <body>
 
 
-
-<script defer="" async="" type="text/javascript">
-  function createCORSRequest(method, url) {
-    var xhr = new XMLHttpRequest();
-    if ("withCredentials" in xhr) {
-      
-      xhr.open(method, url, true);
-    } else if (typeof XDomainRequest != "undefined") {
-      
-      xhr = new XDomainRequest();
-      xhr.open(method, url);
-    } else {
-      
-      xhr = null;
-    }
-    return xhr;
-  }
-
-  
-  var xhr = createCORSRequest('GET', "https://stocksystem.herokuapp.com/api/name");
-  if (!xhr) {
-    console.log('CORS not supported');
-  }
-  xhr.onload = function() {};
-  xhr.onerror = function() {
-    console.log('error making CORS request.');
-  };
-  xhr.send();
-</script>
-
-
-
-
-
-<h2 id="demo">Demo</h2>
+<h2 id="cid">Hand Writting | no-crash-soft</h2>
 <div>
   <span style="display : inline-block">
     PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
     <br>
     <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
-    <br>
+    <br> <br>
     <form>
       Language:
       <select id="language">
-        <option value="zh_TW" selected="selected">Chinese</option>
-        <option value="ja">Japanese</option>
-        <option value="en">English</option>
+        <option value="en" selected="selected">English</option>
+        <option value="bn">Bangla</option>
       </select>
     </form>
     <br>
@@ -69,7 +34,7 @@
   <script type="text/javascript" src="handwriting.canvas.js"></script>
   <script type="text/javascript" defer="">
     var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
-    var width = document.getElementById("demo").clientWidth;
+    var width = document.getElementById("cid").clientWidth;
     canvas.cxt.canvas.width  = width < 400 ? width : 400;
     canvas.cxt.canvas.height = width < 400 ? width : 400;
     canvas.setCallBack(function(data, err) {
