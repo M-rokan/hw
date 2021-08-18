@@ -1,72 +1,11 @@
-<html lang="en-us"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-us">
+<head>
+  <title>no-crash-soft | handwriting</title>
+</head>
+<body>
 
-  <meta name="author" content="No-Crash-Soft">  
-  <meta name="description" content="handwriting recognition">
-  
-  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"> </script>
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-68981848-1"> </script>
-  
- <script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-      dataLayer.push(arguments);
-  }
 
-  function trackOutboundLink(url, target) {
-    gtag('event', 'click', {
-         'event_category': 'outbound',
-         'event_label': url,
-         'transport_type': 'beacon',
-         'event_callback': function () {
-           if (target !== '_blank') {
-             document.location = url;
-           }
-         }
-    });
-    console.debug("Outbound link clicked: " + url);
-  }
-
-  function onClickCallback(event) {
-    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
-      return;
-    }
-    trackOutboundLink(event.target, event.target.getAttribute('target'));  
-  }
-
-  gtag('js', new Date());
-  gtag('config', 'UA-68981848-1', { 'anonymize_ip': true });
-  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
-
-  
-  document.addEventListener('click', onClickCallback, false);
-</script>
-  
-<script>
-  window.addEventListener("load", function(){
-    window.cookieconsent.initialise({
-      "palette": {
-        "popup": {
-          "background": "#3f51b5",
-          "text": "rgb(255, 255, 255)"
-        },
-        "button": {
-          "background": "rgb(255, 255, 255)",
-          "text": "#3f51b5"
-        }
-      },
-      "theme": "classic",
-      "content": {
-        "message": "This website uses cookies to ensure you get the best experience on our website.",
-        "dismiss": "Got it!",
-        "link": "Learn more",
-        "href": "https://www.cookiesandyou.com"
-      }
-    })});
-  </script>
-  
 <script defer="" async="" type="text/javascript">
   function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
@@ -95,53 +34,59 @@
   };
   xhr.send();
 </script>
-  
-<body>
+
+
+
+
+
+<h2 id="demo">Demo</h2>
 <div>
-    <span style="display : inline-block">
-      PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
-      <br>
-      <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
-      <br>
-      <form>
-        Language:
-        <select id="language">
-          <option value="zh_TW" selected="selected">Chinese</option>
-          <option value="ja">Japanese</option>
-          <option value="en">English</option>
-        </select>
-      </form>
-      <br>
-      <button onclick="canvas.erase();">Erase</button>
-      <button onclick="
-        var e = document.getElementById('language');
-        canvas.setOptions({language: e.options[e.selectedIndex].value});
-        canvas.recognize();
-      ">Send</button>
-      <button onclick="canvas.undo()">Undo</button>
-      <button onclick="canvas.redo()">Redo</button>
-      <br>
-      result: <span id="result">o,a,O,B,D,@,♡,®,∞</span>
-    </span>
-    <script type="text/javascript" src="handwriting.canvas.js"></script>
-    <script type="text/javascript" defer="">
-      var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
-      var width = document.getElementById("demo").clientWidth
-      canvas.cxt.canvas.width  = width < 400 ? width : 400;
-      canvas.cxt.canvas.height = width < 400 ? width : 400;
-      canvas.setCallBack(function(data, err) {
-        if (err) throw err;
-        else document.getElementById("result").innerHTML = data;
-      });
-      canvas.set_Undo_Redo(true, true);
-      var penSize = document.getElementById("penSize");
-      penSize.addEventListener("mousemove", function() {
-        document.getElementById("lineWidth").innerHTML = penSize.value;
-      });
-      penSize.addEventListener("change", function(){
-        canvas.setLineWidth(penSize.value);
-      });
-    </script>
+  <span style="display : inline-block">
+    PenSize <span id="lineWidth">3</span><input type="range" id="penSize" min="1" max="30" value="3">
+    <br>
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <br>
+    <form>
+      Language:
+      <select id="language">
+        <option value="zh_TW" selected="selected">Chinese</option>
+        <option value="ja">Japanese</option>
+        <option value="en">English</option>
+      </select>
+    </form>
+    <br>
+    <button onclick="canvas.erase();">Erase</button>
+    <button onclick="
+      var e = document.getElementById('language');
+      canvas.setOptions({language: e.options[e.selectedIndex].value});
+      canvas.recognize();
+    ">Send</button>
+    <button onclick="canvas.undo()">Undo</button>
+    <button onclick="canvas.redo()">Redo</button>
+    <br>
+    result: <span id="result">o,a,O,B,D,@,♡,®,∞</span>
+  </span>
+  <script type="text/javascript" src="handwriting.canvas.js"></script>
+  <script type="text/javascript" defer="">
+    var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
+    var width = document.getElementById("demo").clientWidth;
+    canvas.cxt.canvas.width  = width < 400 ? width : 400;
+    canvas.cxt.canvas.height = width < 400 ? width : 400;
+    canvas.setCallBack(function(data, err) {
+      if (err) throw err;
+      else document.getElementById("result").innerHTML = data;
+    });
+    canvas.set_Undo_Redo(true, true);
+    var penSize = document.getElementById("penSize");
+    penSize.addEventListener("mousemove", function() {
+      document.getElementById("lineWidth").innerHTML = penSize.value;
+    });
+    penSize.addEventListener("change", function(){
+      canvas.setLineWidth(penSize.value);
+    });
+  </script>
 </div>
-  
-</body></html>
+
+
+</body>
+</html>
