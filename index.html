@@ -19,20 +19,16 @@
         <option value="bn">Bangla</option>
       </select>
     </form>
-    <br>
-    <button onclick="canvas.erase(); resultRefresh ();">Refresh</button>
-    <button onclick="
-      var e = document.getElementById('language');
-      canvas.setOptions({language: e.options[e.selectedIndex].value});
-      canvas.recognize();
-    ">Send</button>
-    <button onclick="canvas.undo()">Undo</button>
-    <button onclick="canvas.redo()">Redo</button>
+    <br> <br>
+    <button type="button" onclick="canvas.erase(); resultRefresh();">Refresh</button>
+    <button type="button" onclick="resultSend();">Send</button>
+    <button type="button" onclick="canvas.undo()">Undo</button>
+    <button type="button" onclick="canvas.redo()">Redo</button>
     <br>
     result: <span id="result"></span>
   </span>
   
-  <script type="text/javascript" src="handwriting.canvas.js"></script>
+  <script type="text/javascript" src="#APP_IMAGES#handwriting.canvas.js"></script>
   
   <script type="text/javascript" defer="">
     var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
@@ -42,8 +38,19 @@
     canvas.setCallBack(function(data, err) {
       if (err) throw err;
       else document.getElementById("result").innerHTML = data[0];
-	  console.log(data);
+	   console.log(data);
+      
+      var str=data[0];  
+     // var silent =   new Audio('ms_1000.mp3');
+      for(var i=0; i<str.length;i++)
+         {
+            var audio = new Audio(str.charAt(i).toUpperCase() + '.wav');
+            audio.play(); 
+           // silent.play();       
+         };
+
     });
+
     canvas.set_Undo_Redo(true, true);
     var penSize = document.getElementById("penSize");
     penSize.addEventListener("mousemove", function() {
@@ -52,15 +59,23 @@
     penSize.addEventListener("change", function(){
       canvas.setLineWidth(penSize.value);
     });
+
   </script>
   
   <script type="text/javascript"> 
-	function resultRefresh (){
+	function resultRefresh(){
 		document.getElementById("result").innerHTML = '';
 	};	
+	
+	function resultSend(){
+	  var e = document.getElementById('language');
+      canvas.setOptions({language: e.options[e.selectedIndex].value});
+      canvas.recognize();
+	};
+
   </script>
 </div>
 
-
 </body>
 </html>
+  
