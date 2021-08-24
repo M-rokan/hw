@@ -40,16 +40,25 @@ filter:url('#wave');
 
 <h2 id="cid"></h2>
 <div>
-  <span style="display : inline-block; font-size:30px;color: green;">
+ <!-- <span style="display : inline-block; font-size:30px;color: green;">
   				  Result: <span id="result"></span>
-  </span>
+	 <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button> 
+  </span> 
   <b>
-   <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button>
   
     <br>
     <br>
   <br>
+  -->
+  <span style="display : inline-block; font-size:30px;color: green;">
+  				  <span id="result"> Result :</span>
+	 <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button> 
+  </span> 
+  <b>
   
+    <br>
+    <br>
+  <br>
   <!--button start hear & display none for hide all item & button -->    
 
 <!--button end hear --> 
@@ -127,7 +136,7 @@ filter:url('#wave');
  
  
 	function resultRefresh(){
-		document.getElementById("result").innerHTML = '';
+		document.getElementById("result").innerHTML = 'Result :';
 	};	
 	
 	function resultSend(){
