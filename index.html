@@ -64,7 +64,7 @@ filter:url('#wave');
 </div>
 <!--button end hear --> 
  <!--canvas start here-->
-    <canvas id="canvas" width="600" height="600" style="border: 2px solid; cursor: crosshair;"></canvas>
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
  <!--canvas end here-->
     <br>
         <button style="margin:10px;"  type="button" onclick="canvas.erase(); resultRefresh();"><i class="fas fa-trash-alt fa-2x"></i></button>
@@ -82,7 +82,7 @@ filter:url('#wave');
   <script type="text/javascript" src="handwriting.canvas.js"></script>
   
   <script type="text/javascript" defer="">
-    var canvas = new handwriting.Canvas(document.getElementById('canvas'), 20);
+    var canvas = new handwriting.Canvas(document.getElementById('canvas'), 3);
     var width = document.getElementById("cid").clientWidth;	
 	width="400";
     canvas.cxt.canvas.width  = width < 600 ? width : 600;
