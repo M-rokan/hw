@@ -44,11 +44,19 @@ filter:url('#wave');
   				  result: <span id="result"></span>
   </span>
   <b>
+   <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button>
+  
     <br>
     <br>
   <br>
+  
   <!--button start hear & display none for hide all item & button -->    
-<div style="display:flex">
+
+<!--button end hear --> 
+ <!--canvas start here-->
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
+ <!--canvas end here-->
+ <div style="display:flex">
     <form style="display:none; "margin:10px">
       Language:<br>
       <select id="language">
@@ -56,20 +64,22 @@ filter:url('#wave');
         <option value="bn">Bangla</option>
       </select>
     </form>
-    <button style="display:none; "margin:10px;"  type="button" onclick="canvas.undo()"><i class="fas fa-undo fa-2x"></i></button>
-    <button style="display:none; "margin:10px;" type="button" onclick="canvas.redo()"><i class="fas fa-redo fa-2x"></i></button>
+	<span><!--PenSize--></span><input type="range" id="penSize" min="1" max="30" value="3">
+	&nbsp;&nbsp;&nbsp;&nbsp;
+    <button style="margin:10px;"  type="button" onclick="canvas.undo()"><i class="fas fa-undo fa-2x"></i></button>
+    <button style="margin:10px;" type="button" onclick="canvas.redo()"><i class="fas fa-redo fa-2x"></i></button>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 <button style="margin:10px;"  type="button" onclick="canvas.erase(); resultRefresh();"><i class="fas fa-trash-alt fa-2x"></i></button>
+
+	
+	<!--
     <div style="display:block; margin-right:5px;">
-    <span>PenSize</span><input type="range" id="penSize" min="1" max="30" value="3">
-    </div>    
+    <span></span><input type="range" id="penSize" min="1" max="30" value="3">
+    </div>   
+	-->	
 </div>
-<!--button end hear --> 
- <!--canvas start here-->
-    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
- <!--canvas end here-->
     <br>
-        <button style="margin:10px;"  type="button" onclick="canvas.erase(); resultRefresh();"><i class="fas fa-trash-alt fa-2x"></i></button>
-        <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button>
-  
+       
   <svg style="width:0; height:0;">
   <defs>
   <filter id="wave">
