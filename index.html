@@ -47,23 +47,6 @@ filter:url('#wave');
     <br>
     <br>
   <br>
-  
- <!--canvas start here-->
-    <canvas id="canvas" width="600" height="600" style="border: 2px solid; cursor: crosshair;"></canvas>
- <!--canvas end here-->
-    <br>
-        <button style="margin:10px;"  type="button" onclick="canvas.erase(); resultRefresh();"><i class="fas fa-trash-alt fa-2x"></i></button>
-        <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button>
-  
-  <svg style="width:0; height:0;">
-  <defs>
-  <filter id="wave">
-  <feTurbulence type='fractalNoise' baseFrequency='0.03 0.08' numOctaves='1' result='warp' />
-  <feDisplacementMap xChannelSelector= 'R' yChannelSelector='G' scale='30' in='SourceGraphic' in2='warpOffset' />
-  </filter>
-  </defs>
-  </svg>
-  
   <!--button start hear & display none for hide all item & button -->    
 <div style="display:flex">
     <form style="display:none; "margin:10px">
@@ -79,8 +62,23 @@ filter:url('#wave');
     <span>PenSize</span><input type="range" id="penSize" min="1" max="30" value="3">
     </div>    
 </div>
-<!--button end hear -->
+<!--button end hear --> 
+ <!--canvas start here-->
+    <canvas id="canvas" width="600" height="600" style="border: 2px solid; cursor: crosshair;"></canvas>
+ <!--canvas end here-->
+    <br>
+        <button style="margin:10px;"  type="button" onclick="canvas.erase(); resultRefresh();"><i class="fas fa-trash-alt fa-2x"></i></button>
+        <button class="text-sent-btn"  style="margin:10px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button>
   
+  <svg style="width:0; height:0;">
+  <defs>
+  <filter id="wave">
+  <feTurbulence type='fractalNoise' baseFrequency='0.03 0.08' numOctaves='1' result='warp' />
+  <feDisplacementMap xChannelSelector= 'R' yChannelSelector='G' scale='30' in='SourceGraphic' in2='warpOffset' />
+  </filter>
+  </defs>
+  </svg>
+    
   <script type="text/javascript" src="handwriting.canvas.js"></script>
   
   <script type="text/javascript" defer="">
