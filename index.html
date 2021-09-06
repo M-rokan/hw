@@ -82,8 +82,8 @@ filter:url('#wave');
 
 <!--button end hear --> 
  <!--canvas start here-->
-    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral"
-	onclick="resultStop();" onmouseup="resultStart();" ontouchend="resultStop();"> </canvas>
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral" 
+			onclick="resultStop();" onmouseup="resultStart();" ontouchend="resultStop();"  ></canvas>
  <!--canvas end here-->
 </br> </br> </br>
 <div style="text-align:center">  
@@ -115,10 +115,10 @@ filter:url('#wave');
       var str=data[0];  
      // var silent =   new Audio('ms_1000.mp3');
       for(var i=0; i<str.length;i++)
-         {
+         {			
             var audio = new Audio(str.charAt(i).toUpperCase() + '.wav');
-            audio.play(); 
-           // silent.play();       
+			audio.play(); 
+           // silent.play();  
          };
 
     });
@@ -134,7 +134,7 @@ filter:url('#wave');
 	//penSize.style.visibility = "hidden";
     
  //__________________________________
- 
+ //onblur="resultStop();" ontouchend="resultStop();" 
  
 	function resultRefresh(){
 		document.getElementById("result").innerHTML = 'Result :';
@@ -146,7 +146,7 @@ filter:url('#wave');
       canvas.recognize();
 	};
 
-function resultStart(){
+	function resultStart(){
 		timer = setTimeout(function()
 					{
 						console.log("Hi, start");
