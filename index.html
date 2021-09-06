@@ -82,7 +82,8 @@ filter:url('#wave');
 
 <!--button end hear --> 
  <!--canvas start here-->
-    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral"></canvas>
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral"
+	onclick="resultStop();" onmouseup="resultStart();" ontouchend="resultStop();"> </canvas>
  <!--canvas end here-->
 </br> </br> </br>
 <div style="text-align:center">  
@@ -145,7 +146,19 @@ filter:url('#wave');
       canvas.recognize();
 	};
 
-
+function resultStart(){
+		timer = setTimeout(function()
+					{
+						console.log("Hi, start");
+						resultSend();
+					}, 1000);
+	};
+	
+	function resultStop(){
+		resultStart();
+		clearTimeout(timer);
+		console.log("Hi, Stop");
+	};
 
 
 /*svg Frequency start hear*/
