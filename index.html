@@ -147,16 +147,18 @@ filter:url('#wave');
       canvas.recognize();
 	};
 
-	document.querySelector('canvas').addEventListener('touchstart', resultStop);
+		document.querySelector('canvas').addEventListener('touchstart', resultStop);	
         document.querySelector('canvas').addEventListener('touchend', resultStart);		
-        document.querySelector('canvas').addEventListener('click', resultStart);
+        document.querySelector('canvas').addEventListener('mousedown', resultStop);
+		document.querySelector('canvas').addEventListener('mouseup', resultStart);	
 
+	var timer;
 	function resultStart(){
 		timer = setTimeout(function()
 					{
 						console.log("Hi, start");
 						resultSend();
-					}, 1000);
+					}, 1500);
 	};
 	
 	function resultStop(){
