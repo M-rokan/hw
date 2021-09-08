@@ -29,16 +29,8 @@ content:'';
 background:linear-gradient(to right,red,green,blue);
 filter:url('#wave');
 }
-	
-  p{
-            padding: 1rem;
-            font-size: 1.6rem;
-            line-height: 1.5;
-            font-family: "andale mono", sans-serif;
-            background-color: rebeccapurple;
-            color: white;
-        }
 </style>
+
 <html lang="en-us">
 <head>
 				
@@ -98,11 +90,7 @@ filter:url('#wave');
 <div style="text-align:center">  
   <button class="text-sent-btn"  style="margin:3px;"  type="button" onclick="resultSend();"><i class="fas fa-paper-plane fa-5x"></i></button> 
 </div> 
- <div>
-	 <h1>Touch Events</h1>
-    <p>This is a paragraph with some text. It is waiting to be touched. It can only be touched on a touch capable device like a mobile phone or tablet. Clicking it with a mouse will not accomplish anything.</p>
-	</div>												       
-															       
+ <div>															       
        
   <svg style="width:0; height:0;">
   <defs>
@@ -201,22 +189,7 @@ turbulence.setAttribute('baseFrequency', verticalFrequency + '0.00001');
 });
 /*svg Frequency end hear*/
 
-  </script>
-    <script>
-        document.querySelector('p').addEventListener('touchstart', f);
-        document.querySelector('p').addEventListener('touchend', f);
-        document.querySelector('p').addEventListener('touchmove', f);		
-        document.querySelector('p').addEventListener('click', f);
-        document.querySelector('p').addEventListener('mouseup', f);
-        document.querySelector('p').addEventListener('mouseover', f);
-        document.querySelector('p').addEventListener('mouseleave', f);
-        
-        function f(ev){
-            console.log( ev.touches, ev.type );
-			document.querySelector("h1").innerHTML=ev.type;  
-        }
-        
-    </script>				      
+  </script>		      
 				      
 </div>
 
