@@ -83,8 +83,7 @@ filter:url('#wave');
 
 <!--button end hear --> 
  <!--canvas start here-->
-    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral" 
-			onclick="resultStop();" onmouseup="resultStart();" ontouchend="resultStop();"  ></canvas>
+    <canvas id="canvas" width="400" height="400" style="border: 2px solid; cursor: crosshair; border-color:coral"  ></canvas>
  <!--canvas end here-->
 </br> </br> </br>
 <div style="text-align:center">  
@@ -147,6 +146,10 @@ filter:url('#wave');
       canvas.setOptions({language: e.options[e.selectedIndex].value});
       canvas.recognize();
 	};
+
+
+        document.querySelector('canvas').addEventListener('touchend', resultStart);		
+        document.querySelector('canvas').addEventListener('click', resultStart);
 
 	function resultStart(){
 		timer = setTimeout(function()
