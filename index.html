@@ -147,7 +147,7 @@ filter:url('#wave');
       canvas.recognize();
 	};
 
-
+	document.querySelector('canvas').addEventListener('touchstart', resultStop);
         document.querySelector('canvas').addEventListener('touchend', resultStart);		
         document.querySelector('canvas').addEventListener('click', resultStart);
 
@@ -160,7 +160,6 @@ filter:url('#wave');
 	};
 	
 	function resultStop(){
-		resultStart();
 		clearTimeout(timer);
 		console.log("Hi, Stop");
 	};
